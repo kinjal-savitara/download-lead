@@ -19,7 +19,7 @@ export default function Home() {
 
   // Brochure PDF URL
   const brochureURL =
-    "https://savitarrealty.com/brochures/the-gold-sky-villa.pdf";
+    "https://elasticbeanstalk-ap-south-1-471112538523.s3.ap-south-1.amazonaws.com/production/documents/projectdocuments/brochure-1751371180465-468257066.pdf";
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
