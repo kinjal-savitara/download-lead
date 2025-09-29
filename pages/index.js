@@ -31,14 +31,9 @@ export default function Home() {
 
     try {
       const res = await fetch(scriptURL, {
-        method: "POST",
-        body: '{
-        "name": "amit",
-        "email": "amit@gmail.com",
-        "phone": "9662411041",
-        "projectName": "shahjanand"
-      }',
+        method: "POST", 
         headers: { "Content-Type": "application/json" },
+     body: JSON.stringify(formData),
       });
       console.error("res---:", res);
  alert("res   lead!",res);
