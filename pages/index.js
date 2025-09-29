@@ -35,6 +35,7 @@ export default function Home() {
         body: formData,
         headers: { "Content-Type": "application/json" },
       });
+      console.error("res---:", res);
  alert("res   lead!",res);
       if (res.ok) {
         alert("Lead saved to Google Sheet!");
