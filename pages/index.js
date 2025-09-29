@@ -32,7 +32,7 @@ export default function Home() {
     try {
       const res = await fetch(scriptURL, {
         method: "POST",
-        body: JSON.stringify(formData),
+        body: formData,
         headers: { "Content-Type": "application/json" },
       });
  alert("res   lead!",res);
