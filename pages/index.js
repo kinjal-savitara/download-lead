@@ -15,7 +15,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   // Google Apps Script Web App URL
-  const scriptURL = "https://script.google.com/macros/s/AKfycbwB-ujBVS-zDiGYQ2nlBn38xCoqTCIzXS0qhyX5SY1wSz1vkMgjtMzaeJTCWiytctlB/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyx5IH1DGPVxZ9LFQzYb1mpXXF1DQrQL8YjVod2IkKRr7Yvi2FlXztUp6VydW3-tUcx/exec";
 
   // Brochure PDF URL
   const brochureURL =
