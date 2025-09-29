@@ -32,7 +32,12 @@ export default function Home() {
     try {
       const res = await fetch(scriptURL, {
         method: "POST",
-        body: formData,
+        body: '{
+        "name": "amit",
+        "email": "amit@gmail.com",
+        "phone": "9662411041",
+        "projectName": "shahjanand"
+      }',
         headers: { "Content-Type": "application/json" },
       });
       console.error("res---:", res);
