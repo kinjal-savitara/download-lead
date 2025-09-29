@@ -10,7 +10,7 @@ export default function Home() {
     name: "",
     email: "",
     phone: "",
-    projectName: "The Gold Sky Villa", // hidden field
+    projectName: "Sahajanand Marigold", // hidden field
   });
   const [loading, setLoading] = useState(false);
 
