@@ -35,7 +35,7 @@ export default function Home() {
         body: JSON.stringify(formData),
         headers: { "Content-Type": "application/json" },
       });
-
+ alert("res   lead!",res);
       if (res.ok) {
         alert("Lead saved to Google Sheet!");
         setFormData({
