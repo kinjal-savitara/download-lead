@@ -15,7 +15,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   // Google Apps Script Web App URL
-  const scriptURL = "https://script.google.com/macros/s/AKfycbyx5IH1DGPVxZ9LFQzYb1mpXXF1DQrQL8YjVod2IkKRr7Yvi2FlXztUp6VydW3-tUcx/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyhMs8pSzgbZjr4tllU-Iy-tcVy_CAhJRP4hpIbsbdgsZtec4gpHVuoONgNqBlhnQnW/exec";
 
   // Brochure PDF URL
   const brochureURL =
@@ -33,10 +33,10 @@ export default function Home() {
       const res = await fetch(scriptURL, {
         method: "POST", 
         headers: { "Content-Type": "application/json" },
-     body: JSON.stringify(formData),
+        body: JSON.stringify(formData),
       });
       console.error("res---:", res);
- alert("res   lead!",res);
+     
       if (res.ok) {
         alert("Lead saved to Google Sheet!");
         setFormData({
