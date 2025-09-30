@@ -32,8 +32,7 @@ export default function Home() {
             try {
               const params = new URLSearchParams(formData).toString();
               const res =  fetch(`${scriptURL}?${params}`);
-
-             const res =  fetch(`${scriptURL}?${params}`);
+ 
              alert("Thank you our Agent call you soon!!  " + ( " "));
              setFormData({ ...formData, name: "", email: "", phone: "" });
              window.open(brochureURL);
