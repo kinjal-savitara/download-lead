@@ -32,23 +32,12 @@ export default function Home() {
             try {
               const params = new URLSearchParams(formData).toString();
               const res =  fetch(`${scriptURL}?${params}`);
-              const data =   res.json();
-        
-              if (data.result === "success") {
-                alert("✅ Lead saved to Google Sheet!");
-                setFormData({ ...formData, name: "", email: "", phone: "" });
-                setShowForm(false);
-        
-                // Auto-download brochure
-                const link = document.createElement("a");
-                link.href = brochureURL;
-                link.download = "The-Gold-Sky-Villa-Brochure.pdf";
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              } else {
-                alert("❌ Error: " + (data.message || "unknown"));
-              }
+
+             const res =  fetch(`${scriptURL}?${params}`);
+             alert("Thank you our Agent call you soon!!  " + ( " "));
+             setFormData({ ...formData, name: "", email: "", phone: "" });
+             window.open(brochureURL);
+              
             } catch (err) {
               console.error(err);
               alert("❌ Network error. Check Apps Script URL and deployment.");
