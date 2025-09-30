@@ -15,7 +15,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   // Google Apps Script Web App URL
-  const scriptURL = "https://script.google.com/macros/s/AKfycbyhMs8pSzgbZjr4tllU-Iy-tcVy_CAhJRP4hpIbsbdgsZtec4gpHVuoONgNqBlhnQnW/exec";
+   const scriptURL = 'https://script.google.com/macros/s/AKfycbwNhbpDD9YJxBT6LZOx5mZ8vLuQGYdtXmAd0nKuHWrmX7k_fEv10YNowTvJ0hmW-CWV/exec';
 
   // Brochure PDF URL
   const brochureURL =
@@ -25,44 +25,37 @@ export default function Home() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      const res = await fetch(scriptURL, {
-        method: "POST", 
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      console.error("res---:", res);
-     
-      if (res.ok) {
-        alert("Lead saved to Google Sheet!");
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          projectName: formData.projectName,
-        });
-        setShowForm(false);
-
-        // Automatically download brochure
-        const link = document.createElement("a");
-        link.href = brochureURL;
-        link.download = "The-Gold-Sky-Villa-Brochure.pdf";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      } else {
-        alert("Error saving lead!");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Network error");
-    }
-
-    setLoading(false);
+  const handleSubmit = (e) => {
+            e.preventDefault();
+           
+         
+            try {
+              const params = new URLSearchParams(formData).toString();
+              const res =  fetch(`${scriptURL}?${params}`);
+              const data =   res.json();
+        
+              if (data.result === "success") {
+                alert("✅ Lead saved to Google Sheet!");
+                setFormData({ ...formData, name: "", email: "", phone: "" });
+                setShowForm(false);
+        
+                // Auto-download brochure
+                const link = document.createElement("a");
+                link.href = brochureURL;
+                link.download = "The-Gold-Sky-Villa-Brochure.pdf";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              } else {
+                alert("❌ Error: " + (data.message || "unknown"));
+              }
+            } catch (err) {
+              console.error(err);
+              alert("❌ Network error. Check Apps Script URL and deployment.");
+            }
+        
+            setLoading(false);
+                 
   };
 
   return (
